@@ -1,0 +1,22 @@
+version: "2"
+services:
+    nginx:
+        image: carmark/nginx
+        links:
+            - node1:node1
+            - node2:node2
+            - node3:node3
+    node1:
+        image: carmark/node
+        links:
+            - redis
+    node2:
+        image: carmark/node
+        links:
+            - redis
+    node3:
+        image: carmark/node
+        links:
+            - redis
+    redis:
+        image: redis
